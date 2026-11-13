@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="sw"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZEYVION MINERAL</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#EEF0F5;--surf:#fff;--ink:#16162B;--mute:#5E6078;--line:#D9DCE8;--tz:#3B3FA8;--tzs:#E4E5F8;--gold:#9A6B10;--gs:#F6EBD2;--ok:#1B7A58;--oks:#DDF2E8;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1020;--surf:#1A1B30;--ink:#ECECF8;--mute:#9A9CB8;--line:#2D2F4C;--tz:#9EA3FF;--tzs:#25274F;--gold:#E0B25A;--gs:#3A2F17;--ok:#5CD2A0;--oks:#16372B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1020;--surf:#1A1B30;--ink:#ECECF8;--mute:#9A9CB8;--line:#2D2F4C;--tz:#9EA3FF;--tzs:#25274F;--gold:#E0B25A;--gs:#3A2F17;--ok:#5CD2A0;--oks:#16372B;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.45 "Bricolage Grotesque",system-ui,sans-serif;max-width:440px;margin-inline:auto;padding-bottom:84px;min-height:100vh}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;align-items:center;gap:10px;padding:14px 16px 10px}
+header b{font-weight:800;font-size:18px;letter-spacing:.02em}
+header span{color:var(--tz)}
+main{padding:0 16px}
+h2{font-size:22px;font-weight:800;margin:6px 0 4px}
+p{margin:0 0 10px}.mute{color:var(--mute);font-size:13px}
+input,select{width:100%;font:inherit;color:var(--ink);background:var(--surf);border:1.5px solid var(--line);border-radius:10px;padding:12px;margin:4px 0 12px}
+input:focus,select:focus,button:focus-visible,summary:focus-visible{outline:3px solid var(--tz);outline-offset:1px}
+label{font-weight:600;font-size:13px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.chip{flex:none;border:1.5px solid var(--line);background:var(--surf);color:var(--ink);font:600 13px inherit;font-family:inherit;border-radius:20px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--tz);border-color:var(--tz);color:#fff}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.row{display:flex;gap:12px;align-items:flex-start}
+.tile{flex:none;width:44px;height:44px;border-radius:10px;background:var(--tzs);color:var(--tz);display:grid;place-items:center;font-weight:800;font-size:18px}
+.grow{flex:1;min-width:0}.grow strong{display:block;font-size:16px}
+.badge{display:inline-block;font-size:12px;font-weight:600;border-radius:6px;padding:2px 8px;margin-top:6px}
+.ok{background:var(--oks);color:var(--ok)}.wait{background:var(--gs);color:var(--gold)}
+.btn{width:100%;border:0;border-radius:12px;background:var(--tz);color:#fff;font:800 16px inherit;font-family:inherit;padding:14px;cursor:pointer}
+.btn.sm{width:auto;padding:8px 14px;font-size:14px;margin-top:8px}
+.btn.gold{background:var(--gold);color:#fff}
+:root[data-theme="dark"] .btn,:root[data-theme="dark"] .chip[aria-pressed="true"]{color:#10102A}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn,:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#10102A}}
+.hero{background:var(--tz);color:#fff;border-radius:16px;padding:18px;margin-bottom:14px}
+.hero.apollo{background:var(--gold)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero,:root:not([data-theme="light"]) .hero.apollo{color:#10102A}}
+.price{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}.price:last-child{border:0}
+details{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+summary{font-weight:600;cursor:pointer}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(440px,100%);display:flex;background:var(--surf);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));z-index:6}
+nav button{flex:1;border:0;background:none;color:var(--mute);font:600 12px inherit;font-family:inherit;padding:10px 4px;border-radius:10px;cursor:pointer}
+nav button[aria-current="page"]{color:var(--tz);background:var(--tzs)}
+.view[hidden]{display:none}
+.ok-box{background:var(--oks);color:var(--ok);border-radius:12px;padding:14px;font-weight:600}
+</style></head>
+<body>
+<header>
+<svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><polygon points="17,2 31,12 25,30 9,30 3,12" fill="#3B3FA8"/><polygon points="17,2 31,12 17,16" fill="#8F94F5"/><polygon points="17,16 31,12 25,30" fill="#2B2E84"/><polygon points="17,16 3,12 9,30" fill="#5A5FD0"/></svg>
+<b>ZEYVION <span>MINERAL</span></b>
+</header>
+<main>
+<section class="view" id="v-home">
+<h2>Pata mnunuzi au muuzaji wa madini</h2>
+<p class="mute">Wenye leseni, madalali, dealers, masonara na wawekezaji katika sehemu moja.</p>
+<input id="q" type="search" placeholder="Tafuta madini, mkoa au nchi" aria-label="Tafuta">
+<div class="chips" id="groupChips"></div>
+<div class="chips" id="roleChips"></div>
+<div id="list"></div>
+<p class="mute">Taarifa zote kwenye mfano huu ni za majaribio.</p>
+</section>
+
+<section class="view" id="v-shop" hidden>
+<h2>Duka la vifaa na mashine</h2>
+<p class="mute">Nunua au kodisha vifaa vya machimbo na vya ujenzi. Bei ni za mfano.</p>
+<div class="chips" id="shopChips"></div>
+<div id="shopList"></div>
+</section>
+
+<section class="view" id="v-projects" hidden>
+<h2>Miradi inayohitaji vifaa</h2>
+<p class="mute">Wakandarasi na wajenzi wanaweka mahitaji ya kokoto, mchanga na madini ya viwandani kwa wingi. Wauzaji wanajibu.</p>
+<div id="reqList"></div>
+<div class="card">
+<strong>Weka ombi lako</strong><br><br>
+<label for="rm">Unahitaji nini?</label>
+<select id="rm"><option>Kokoto</option><option>Mchanga</option><option>Chokaa (limestone)</option><option>Jasi (gypsum)</option><option>Dolomite</option><option>Feldspar</option><option>Nyingine</option></select>
+<label for="rk">Kiasi (tani au malori)</label><input id="rk" placeholder="mfano: tani 2,000">
+<label for="rp">Mahali pa mradi</label><input id="rp">
+<button class="btn" id="rBtn">Tuma ombi</button>
+<p class="mute" id="rMsg" style="margin-top:8px"></p>
+</div>
+</section>
+
+<section class="view" id="v-experts" hidden>
+<h2>Wataalamu na watafiti</h2>
+<p class="mute">Wanajiolojia, watafiti wa maeneo mapya, wapima ardhi na wahandisi. Majina ni ya mfano.</p>
+<div class="chips" id="expChips"></div>
+<div id="expList"></div>
+<h2 style="margin-top:22px;font-size:18px">Maeneo mapya yaliyofanyiwa utafiti</h2>
+<div id="repList"></div>
+<div class="card">
+<strong>Wewe ni mtaalamu? Jisajili</strong><br><br>
+<label for="en">Jina</label><input id="en" autocomplete="name">
+<label for="xf">Fani yako</label>
+<select id="xf"><option>Mwanajiolojia</option><option>Mtafiti wa maeneo mapya</option><option>Mpima ardhi</option><option>Mhandisi wa migodi</option><option>Mazingira</option></select>
+<label for="ep">Mkoa au nchi</label><input id="ep">
+<button class="btn" id="eBtn">Jisajili kama mtaalamu</button>
+<p class="mute" id="eMsg" style="margin-top:8px"></p>
+</div>
+</section>
+
+<section class="view" id="v-apollo" hidden>
+<div class="hero apollo"><h2 style="margin-top:0">Apollo</h2><p style="margin:0">Kwa wachimbaji wadogo. Jiunge kwa jina na namba ya simu tu. Huhitaji leseni kujisajili.</p></div>
+<div id="apolloForm">
+<label for="aj">Jina lako</label><input id="aj" autocomplete="name">
+<label for="as">Namba ya simu</label><input id="as" type="tel" inputmode="tel" placeholder="07xx xxx xxx">
+<label for="am">Madini unayochimba</label>
+<select id="am"><option>Dhahabu</option><option>Tanzanite</option><option>Almasi</option><option>Shaba</option><option>Makaa ya mawe</option><option>Kokoto</option><option>Mchanga</option><option>Chokaa (limestone)</option><option>Jasi (gypsum)</option><option>Dolomite</option><option>Feldspar</option><option>Nyingine</option></select>
+<label for="ae">Eneo (mkoa au kijiji)</label><input id="ae">
+<button class="btn gold" id="aBtn">Jiunge na Apollo</button>
+<p class="mute" id="aErr" style="color:var(--gold);margin-top:8px"></p>
+</div>
+<div id="aDone" class="ok-box" hidden></div>
+<h2 style="margin-top:22px;font-size:18px">Bei za leo (mfano)</h2>
+<div class="card"><div class="price"><span>Dhahabu (gramu)</span><b>TSh 210,000</b></div><div class="price"><span>Shaba (kilo)</span><b>TSh 22,000</b></div><div class="price"><span>Makaa ya mawe (tani)</span><b>TSh 140,000</b></div></div>
+<h2 style="margin-top:22px;font-size:18px">Jifunze</h2>
+<details><summary>Jinsi ya kupata leseni ya uchimbaji mdogo</summary><p class="mute" style="margin-top:8px">Hapa tutaweka hatua rasmi na ofisi za Tume ya Madini zilizo karibu nawe.</p></details>
+<details><summary>Usalama kazini</summary><p class="mute" style="margin-top:8px">Vifaa vya kujikinga, kuimarisha mashimo, na huduma ya kwanza.</p></details>
+<details><summary>Kuepuka zebaki</summary><p class="mute" style="margin-top:8px">Njia salama za kutenganisha dhahabu bila kuumiza afya yako na mazingira.</p></details>
+</section>
+</main>
+
+<nav aria-label="Menyu kuu">
+<button data-v="home" aria-current="page">Nyumbani</button>
+<button data-v="shop">Duka</button>
+<button data-v="projects">Miradi</button>
+<button data-v="experts">Wataalamu</button>
+<button data-v="apollo">Apollo</button>
+</nav>
+
+<script>
+var people=[
+{n:"Chalinze Aggregates",r:"Mwenye leseni",m:"Kokoto, mchanga",g:"Ujenzi",p:"Pwani",d:"Kokoto na mchanga kwa wingi, hadi tani 5,000 kwa mwezi.",v:1},
+{n:"Tanga Limestone Co.",r:"Mwenye leseni",m:"Chokaa (limestone)",g:"Viwandani",p:"Tanga",d:"Chokaa kwa viwanda vya saruji na kilimo.",v:1},
+{n:"Dodoma Gypsum Works",r:"Dealer",m:"Jasi (gypsum)",g:"Viwandani",p:"Dodoma",d:"Jasi kwa saruji na bodi za dari.",v:0},
+{n:"Rift Industrial Minerals",r:"Mwenye leseni",m:"Dolomite, feldspar",g:"Viwandani",p:"Morogoro",d:"Dolomite na feldspar kwa viwanda vya vigae na vioo.",v:1},
+{n:"Mawe Kijani Mining",r:"Mwenye leseni",m:"Dhahabu",p:"Geita",d:"Leseni 3. Tunatafuta mwekezaji kwa eneo la ekari 40.",v:1},
+{n:"Mwanga Gems",r:"Mwenye leseni",m:"Tanzanite",p:"Mererani, Manyara",d:"Leseni 1. Tuna mzigo tayari kwa mnunuzi.",v:1},
+{n:"Juma Dalali",r:"Dalali",m:"Dhahabu, Shaba",p:"Dar es Salaam",d:"Naunganisha wanunuzi na wachimbaji wadogo.",v:0},
+{n:"Kilimanjaro Minerals",r:"Dealer",m:"Almasi, Tanzanite",p:"Moshi",d:"Tunanunua na kuuza kwa jumla.",v:1},
+{n:"Nyota Jewellers",r:"Sonara",m:"Tanzanite, Almasi",p:"Arusha",d:"Tunanunua madini ya kutengeneza vito.",v:1},
+{n:"Sahara Capital",r:"Mwekezaji",m:"Dhahabu",p:"Nairobi, Kenya",d:"Tunatafuta migodi ya dhahabu ya kuwekeza.",v:0}];
+var shop=[
+{n:"Kichanganya zege",t:"Nunua",k:"Ujenzi",c:"TSh 3,800,000"},
+{n:"Excavator (kuchimba na kupakia)",t:"Kodisha",k:"Ujenzi",c:"TSh 900,000 kwa siku"},
+{n:"Roller ya kubonyeza barabara",t:"Kodisha",k:"Ujenzi",c:"TSh 700,000 kwa siku"},
+{n:"Lori la kubeba kifusi",t:"Kodisha",k:"Ujenzi",c:"TSh 450,000 kwa siku"},
+{n:"Saruji (mfuko wa kilo 50)",t:"Nunua",k:"Ujenzi",c:"TSh 17,500"},
+{n:"Nondo za chuma",t:"Nunua",k:"Ujenzi",c:"TSh 24,000 kwa nondo"},
+{n:"Mashine ya kusaga mawe",t:"Nunua",c:"TSh 18,500,000"},
+{n:"Pampu ya maji ya shimoni",t:"Kodisha",c:"TSh 80,000 kwa siku"},
+{n:"Kifaa cha GPS cha uchunguzi",t:"Nunua",c:"TSh 2,400,000"},
+{n:"Helmeti na viatu vya usalama",t:"Nunua",c:"TSh 65,000"},
+{n:"Jenereta ya 20kVA",t:"Kodisha",c:"TSh 150,000 kwa siku"}];
+var roles=["Wote","Mwenye leseni","Dalali","Dealer","Sonara","Mwekezaji"],role="Wote",stype="Zote",groups=["Yote","Vito na thamani","Ujenzi","Viwandani"],grp="Yote";
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function chips(id,arr,cur,fn){$(id).innerHTML=arr.map(function(x){return '<button class="chip" aria-pressed="'+(x===cur)+'">'+x+'</button>'}).join("");
+ Array.prototype.forEach.call($(id).children,function(b,i){b.onclick=function(){fn(arr[i])}})}
+function drawList(){
+ chips("groupChips",groups,grp,function(x){grp=x;drawList()});
+ chips("roleChips",roles,role,function(x){role=x;drawList()});
+ var q=$("q").value.toLowerCase();
+ var items=people.filter(function(p){return(role==="Wote"||p.r===role)&&(grp==="Yote"||(p.g||"Vito na thamani")===grp)&&(p.n+p.m+p.p+p.r).toLowerCase().indexOf(q)>-1});
+ $("list").innerHTML=items.length?items.map(function(p){return '<div class="card"><div class="row"><div class="tile">'+esc(p.n[0])+'</div><div class="grow"><strong>'+esc(p.n)+'</strong><span class="mute">'+esc(p.r)+', '+esc(p.p)+'</span><p style="margin:6px 0 0">'+esc(p.d)+'</p><span class="mute">Madini: '+esc(p.m)+'</span><br><span class="badge '+(p.v?"ok":"wait")+'">'+(p.v?"Leseni imethibitishwa":"Inasubiri uthibitisho")+'</span><br><button class="btn sm">Wasiliana</button></div></div></div>'}).join(""):'<div class="card">Hakuna aliyepatikana. Jaribu neno lingine au chagua Wote.</div>'}
+function drawShop(){
+ chips("shopChips",["Zote","Uchimbaji","Ujenzi","Kodisha"],stype,function(x){stype=x;drawShop()});
+ $("shopList").innerHTML=shop.filter(function(s){return stype==="Zote"||(stype==="Kodisha"?s.t==="Kodisha":(s.k||"Uchimbaji")===stype)}).map(function(s){return '<div class="card"><div class="row"><div class="tile">'+esc(s.n[0])+'</div><div class="grow"><strong>'+esc(s.n)+'</strong><span class="mute">'+esc(s.c)+'</span><br><button class="btn sm">'+s.t+'</button></div></div></div>'}).join("")}
+function show(v){
+ ["home","shop","projects","experts","apollo"].forEach(function(k){$("v-"+k).hidden=k!==v});
+ Array.prototype.forEach.call(document.querySelectorAll("nav button"),function(b){if(b.dataset.v===v)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
+ if(location.hash!=="#"+v)location.hash=v;window.scrollTo(0,0)}
+Array.prototype.forEach.call(document.querySelectorAll("nav button"),function(b){b.onclick=function(){show(b.dataset.v)}});
+window.addEventListener("hashchange",function(){var h=location.hash.slice(1);if(["home","shop","projects","experts","apollo"].indexOf(h)>-1)show(h)});
+$("q").oninput=drawList;
+$("aBtn").onclick=function(){
+ var j=$("aj").value.trim(),s=$("as").value.replace(/\s/g,"");
+ if(!j||s.length<9){$("aErr").textContent="Weka jina lako na namba ya simu yenye tarakimu 9 au zaidi.";return}
+ $("apolloForm").hidden=true;$("aDone").hidden=false;
+ $("aDone").textContent="Karibu Apollo, "+j+". Tukipata mnunuzi wa "+$("am").value.toLowerCase()+" tutakupigia kwa "+s+".";}
+var reqs=[{n:"Mradi wa barabara, Dodoma",w:"Kokoto, tani 5,000",d:"Inahitajika ndani ya miezi 2"},{n:"Ujenzi wa daraja, Morogoro",w:"Mchanga na kokoto, malori 120",d:"Uwasilishaji kila wiki"}];
+function drawReqs(){$("reqList").innerHTML=reqs.map(function(r){return '<div class="card"><strong>'+esc(r.n)+'</strong><span class="mute">'+esc(r.d)+'</span><p style="margin:6px 0 0"><b>'+esc(r.w)+'</b></p><button class="btn sm">Nina hii</button></div>'}).join("")}
+$("rBtn").onclick=function(){var k=$("rk").value.trim(),p=$("rp").value.trim();if(!k||!p){$("rMsg").textContent="Weka kiasi na mahali pa mradi.";return}reqs.unshift({n:"Mradi wako, "+p,w:$("rm").value+", "+k,d:"Ombi jipya"});drawReqs();$("rMsg").textContent="Ombi limetumwa. Wauzaji wenye leseni watawasiliana nawe.";$("rk").value="";$("rp").value=""};
+var exps=[{n:"Amani M. (mfano)",f:"Mwanajiolojia",p:"Mwanza",d:"Ramani za jiolojia na ripoti za utafiti kwa maombi ya leseni.",v:1},{n:"Neema K. (mfano)",f:"Mtafiti wa maeneo mapya",p:"Ruvuma",d:"Utafiti wa awali wa maeneo mapya ya madini na kuchukua sampuli.",v:1},{n:"Baraka S. (mfano)",f:"Mpima ardhi",p:"Dodoma",d:"Kupima na kuweka mipaka ya eneo la leseni.",v:1},{n:"Salma R. (mfano)",f:"Mhandisi wa migodi",p:"Geita",d:"Mipango ya uchimbaji na usalama wa mashimo.",v:0},{n:"Joseph T. (mfano)",f:"Mazingira",p:"Arusha",d:"Tathmini ya athari za mazingira kwa miradi ya madini.",v:1}],curF="Wote",efs=["Wote","Mwanajiolojia","Mtafiti wa maeneo mapya","Mpima ardhi","Mhandisi wa migodi","Mazingira"];
+function drawExp(){chips("expChips",efs,curF,function(x){curF=x;drawExp()});
+$("expList").innerHTML=exps.filter(function(e){return curF==="Wote"||e.f===curF}).map(function(e){return '<div class="card"><div class="row"><div class="tile">'+esc(e.n[0])+'</div><div class="grow"><strong>'+esc(e.n)+'</strong><span class="mute">'+esc(e.f)+', '+esc(e.p)+'</span><p style="margin:6px 0 0">'+esc(e.d)+'</p><span class="badge '+(e.v?"ok":"wait")+'">'+(e.v?"Sifa zimethibitishwa":"Inasubiri uthibitisho")+'</span><br><button class="btn sm">Omba huduma</button></div></div></div>'}).join("")}
+var reps=[{n:"Eneo la mfano, Ruvuma",d:"Dalili za graphite. Utafiti wa awali umekamilika, wawekezaji wanatafutwa."},{n:"Eneo la mfano, Kigoma",d:"Dalili za shaba. Inahitaji utafiti wa kina na mshirika wa kifedha."}];
+$("repList").innerHTML=reps.map(function(r){return '<div class="card"><strong>'+esc(r.n)+'</strong><p style="margin:6px 0 0">'+esc(r.d)+'</p><button class="btn sm">Nipendezwa</button></div>'}).join("");
+$("eBtn").onclick=function(){var n=$("en").value.trim(),p=$("ep").value.trim();if(!n||!p){$("eMsg").textContent="Weka jina na mkoa au nchi.";return}exps.unshift({n:n,f:$("xf").value,p:p,d:"Mtaalamu mpya.",v:0});curF="Wote";drawExp();$("eMsg").textContent="Umesajiliwa. Sifa zako zitahakikiwa kabla ya alama ya uthibitisho.";$("en").value="";$("ep").value=""};
+drawList();drawShop();drawReqs();drawExp();
+(function(){var h=location.hash.slice(1);if(["shop","projects","experts","apollo"].indexOf(h)>-1)show(h)})();
+</script>
+</body></html>
