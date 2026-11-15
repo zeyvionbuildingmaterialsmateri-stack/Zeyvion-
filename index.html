@@ -1,5 +1,10 @@
 <!doctype html>
-<html lang="sw"><head><meta charset="utf-8">
+<html lang="sw" translate="no"><head><meta charset="utf-8">
+<meta name="google" content="notranslate">
+<link rel="icon" href="IMG-20261115-WA0003.jpg">
+<meta property="og:title" content="Zeyvion Mineral and Building Materials">
+<meta property="og:description" content="Your complete construction partner. Soko la madini, vifaa vya ujenzi na wataalamu.">
+<meta property="og:image" content="https://zeyvionbuildingmaterialsmateri-stack.github.io/Zeyvion-/IMG-20261115-WA0003.jpg">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Zeyvion Mineral and Building Materials</title>
 <style>
@@ -16,24 +21,26 @@ label{display:block;font-weight:600;font-size:13px}
 .chip{flex:none;border:1.5px solid var(--line);background:var(--s);color:var(--ink);font-family:inherit;font-weight:600;font-size:13px;border-radius:20px;padding:8px 14px}
 .chip[aria-pressed=true]{background:var(--tz);border-color:var(--tz);color:var(--on)}
 .btn{display:inline-block;border:0;border-radius:12px;background:var(--tz);color:var(--on);font-family:inherit;font-weight:700;font-size:15px;padding:12px 16px;text-decoration:none;cursor:pointer;margin:8px 8px 0 0}
-.gold{background:var(--gold);color:var(--on)}#send{width:100%;margin-right:0}
+.gold{background:var(--gold);color:var(--on)}.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;margin:6px 6px 0 0}.badge.ok{background:#DDF2E8;color:#1B7A58}.badge.gold{background:#F6EBD2;color:#9A6B10}#send{width:100%;margin-right:0}
 nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);display:flex;background:var(--s);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
 nav button{flex:1;border:0;background:none;color:var(--mute);font-family:inherit;font-weight:600;font-size:12px;padding:10px 2px;border-radius:10px}
 nav button[aria-current=page]{color:var(--tz);background:var(--bg)}
 </style></head>
 <body>
-<header><b>ZEYVION <span>MINERAL</span></b><small>and Building Materials</small></header>
+<header style="display:flex;align-items:center;gap:10px"><img src="IMG-20261115-WA0003.jpg" alt="Zeyvion" width="52" height="52" style="border-radius:10px;background:#fff"><div><b>ZEYVION <span>MINERAL</span></b><small>and Building Materials</small></div></header>
 <main id="app"></main>
 <nav id="nav" aria-label="Menyu kuu"></nav>
 <script>
+/* 1) WEKA MAELEZO YA SUPABASE HAPA (angalia MAELEZO.md) */
 const SUPABASE_URL="https://pjerbhufmxijguzrnfmv.supabase.co";
 const SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqZXJiaHVmbXhpamd1enJuZm12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ1NTM2MTYsImV4cCI6MjExMDEyOTYxNn0.8x2As7DWxisgJgRZs7doOGb_01BhGRNhhWeCYed2tkM";
+/* 2) MAWASILIANO YAKO */
 const CONTACT={call1:"0696695977",call2:"0743210209",wa:"255696695977",group:"https://chat.whatsapp.com/L8IPMWji2IPIn8YK5NioeQ"};
 
 const PH="Namba ya simu";
 const TABS={
 soko:{t:"Soko",sub:"Wenye leseni, madalali, dealers, masonara na wawekezaji.",roles:["Mwenye leseni","Dalali","Dealer","Sonara","Mwekezaji"],
- f:{name:"Jina la kampuni au mtu",role:"Wewe ni nani?",minerals:"Madini (mfano: dhahabu, kokoto, chokaa)",place:"Mkoa au nchi",description:"Maelezo (leseni ngapi, unauza au unatafuta nini)",phone:PH}},
+ f:{name:"Jina la kampuni au mtu",role:"Wewe ni nani?",minerals:"Madini (mfano: dhahabu, kokoto, chokaa)",place:"Mkoa au nchi",license_no:"Namba ya leseni (itahakikiwa kabla ya kuonekana)",description:"Maelezo (leseni ngapi, unauza au unatafuta nini)",phone:PH}},
 duka:{t:"Duka",sub:"Vifaa na mashine za machimbo na ujenzi.",roles:["Nunua","Kodisha"],
  f:{name:"Jina la kifaa au mashine",role:"Nunua au kodisha?",price:"Bei (mfano: TSh 80,000 kwa siku)",place:"Mahali kilipo",description:"Maelezo",phone:PH}},
 ombi:{t:"Miradi",sub:"Miradi inayohitaji kokoto, mchanga na madini kwa wingi.",
@@ -57,14 +64,14 @@ async function load(){
   if(TABS[tab].priv)return;
   if(!ready()){status="Tovuti bado haijaunganishwa na database. Fuata MAELEZO.md.";return list()}
   try{
-    const r=await fetch(SUPABASE_URL+"/rest/v1/entries?type=eq."+tab+"&verified=eq.true&order=created_at.desc&limit=100&select=name,role,minerals,place,description,price,phone",{headers:H});
+    const r=await fetch(SUPABASE_URL+"/rest/v1/entries?type=eq."+tab+"&verified=eq.true&order=pinned.desc,created_at.desc&limit=100&select=name,role,minerals,place,description,price,phone,license_no,pinned",{headers:H});
     if(!r.ok)throw 0;items=await r.json();
   }catch(e){status="Imeshindwa kupakia. Jaribu tena baadaye."}
   list();
 }
-const card=e=>'<div class="card"><strong>'+esc(e.name)+'</strong><div class="mute" style="margin:0">'+[e.role,e.place].filter(Boolean).map(esc).join(", ")+'</div>'
- +(e.minerals?'<div>'+esc(e.minerals)+'</div>':'')+(e.price?'<div>Bei: '+esc(e.price)+'</div>':'')+(e.description?'<p style="margin:6px 0 0">'+esc(e.description)+'</p>':'')
- +'<a class="btn" href="tel:+'+intl(e.phone)+'">Piga</a><a class="btn gold" href="https://wa.me/'+intl(e.phone)+'">WhatsApp</a></div>';
+const card=e=>'<div class="card"><strong>'+esc(e.name)+'</strong>'+(e.pinned?'<span class="badge gold">Imewekwa na Zeyvion</span>':'')+'<div class="mute" style="margin:0">'+[e.role,e.place].filter(Boolean).map(esc).join(", ")+'</div>'
+ +(e.license_no?'<div>Leseni: <b>'+esc(e.license_no)+'</b></div>':'')+(e.minerals?'<div>'+esc(e.minerals)+'</div>':'')+(e.price?'<div>Bei: '+esc(e.price)+'</div>':'')+(e.description?'<p style="margin:6px 0 0">'+esc(e.description)+'</p>':'')
+ +'<div><span class="badge ok">Imethibitishwa na Zeyvion</span></div><a class="btn" href="tel:+'+intl(e.phone)+'">Piga</a><a class="btn gold" href="https://wa.me/'+intl(e.phone)+'">WhatsApp</a></div>';
 
 function list(){
   const T=TABS[tab];if(T.priv)return;
@@ -80,7 +87,7 @@ function formHtml(T){
   +'<button class="btn" id="send">Tuma</button><p class="mute" id="msg" role="status"></p></div>';
 }
 function contactHtml(){
-  return '<div class="card"><strong>Wasiliana nasi kwa msaada</strong><br><a class="btn" href="tel:+'+intl(CONTACT.call1)+'">Piga '+esc(CONTACT.call1)+'</a><a class="btn" href="tel:+'+intl(CONTACT.call2)+'">Piga '+esc(CONTACT.call2)+'</a><a class="btn gold" href="https://wa.me/'+esc(CONTACT.wa)+'">WhatsApp</a><a class="btn" href="'+esc(CONTACT.group)+'">Group la WhatsApp</a></div>';
+  return '<div class="card"><strong>Wasiliana nasi kwa msaada</strong><br><a class="btn" href="tel:+'+intl(CONTACT.call1)+'">Piga '+esc(CONTACT.call1)+'</a><a class="btn" href="tel:+'+intl(CONTACT.call2)+'">Piga '+esc(CONTACT.call2)+'</a><a class="btn gold" href="https://wa.me/'+esc(CONTACT.wa)+'">WhatsApp</a><a class="btn" href="'+esc(CONTACT.group)+'">Group la WhatsApp</a><p class="mute" style="margin:10px 0 0"><a href="#admin" id="adm">Admin</a></p></div>';
 }
 function draw(){
   const T=TABS[tab];
@@ -93,6 +100,7 @@ function draw(){
     $("#chips").onclick=e=>{const b=e.target.closest("[data-r]");if(b){role=b.dataset.r;list()}};
   }
   $("#send").onclick=send;
+  $("#adm").onclick=e=>{e.preventDefault();adminView()};
 }
 $("#nav").onclick=e=>{const b=e.target.closest("[data-t]");if(b){tab=b.dataset.t;load();window.scrollTo(0,0)}};
 
@@ -111,6 +119,74 @@ async function send(){
   }catch(e){msg.textContent="Imeshindwa kutuma. Jaribu tena."}
   $("#send").disabled=false;
 }
+/* ===== ADMIN ===== */
+let TOK=sessionStorage.getItem("zt")||"";
+const AH=()=>({apikey:SUPABASE_KEY,Authorization:"Bearer "+TOK,"Content-Type":"application/json"});
+const PM={Prefer:"return=minimal"};
+const TL={soko:"Soko",duka:"Duka",ombi:"Miradi",mtaalamu:"Wataalamu",apollo:"Apollo"};
+function out(msg){TOK="";sessionStorage.removeItem("zt");adminView(msg)}
+async function adm(path,opt){
+  const r=await fetch(SUPABASE_URL+"/rest/v1/"+path,Object.assign({headers:AH()},opt||{}));
+  if(r.status===401){out("Muda umeisha. Ingia tena.");throw 0}
+  if(!r.ok)throw 0;
+  const t=await r.text();return t?JSON.parse(t):null;
+}
+function adminView(msg){
+  document.querySelectorAll("#nav [aria-current]").forEach(b=>b.removeAttribute("aria-current"));
+  if(!TOK){
+    $("#app").innerHTML='<h2>Admin</h2><div class="card"><label>Barua pepe<input id="ae" type="email" autocomplete="username"></label><label>Nenosiri<input id="ap" type="password" autocomplete="current-password"></label><button class="btn" id="al">Ingia</button><p class="mute" id="am" role="status">'+esc(msg||"")+'</p></div>';
+    $("#al").onclick=login;return;
+  }
+  adminList("wait",msg);
+}
+async function login(){
+  try{
+    const r=await fetch(SUPABASE_URL+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:SUPABASE_KEY,"Content-Type":"application/json"},body:JSON.stringify({email:$("#ae").value.trim(),password:$("#ap").value})});
+    const j=await r.json();if(!r.ok||!j.access_token)throw 0;
+    TOK=j.access_token;sessionStorage.setItem("zt",TOK);adminView();
+  }catch(e){$("#am").textContent="Barua pepe au nenosiri si sahihi."}
+}
+async function adminList(mode,msg){
+  let rows;
+  try{rows=await adm("entries?verified=eq."+(mode==="live")+"&order=pinned.desc,created_at.desc&limit=100&select=*")}catch(e){return}
+  const row=e=>'<div class="card"><strong>'+esc(e.name)+'</strong>'+(e.pinned?'<span class="badge gold">Juu</span>':'')
+   +'<div class="mute" style="margin:0">'+esc(TL[e.type]||e.type)+(e.role?', '+esc(e.role):'')+(e.place?', '+esc(e.place):'')+'</div>'
+   +(e.license_no?'<div>Leseni: <b>'+esc(e.license_no)+'</b></div>':'')+(e.minerals?'<div>'+esc(e.minerals)+'</div>':'')+(e.price?'<div>Bei: '+esc(e.price)+'</div>':'')
+   +(e.description?'<p style="margin:6px 0 0">'+esc(e.description)+'</p>':'')+'<div class="mute">Simu: '+esc(e.phone)+'</div>'
+   +(mode==="wait"?'<button class="btn" data-a="ok" data-i="'+Number(e.id)+'">Idhinisha</button><button class="btn gold" data-a="del" data-w="1" data-i="'+Number(e.id)+'">Kataa</button>'
+     :'<button class="btn" data-a="pin" data-p="'+(e.pinned?1:0)+'" data-i="'+Number(e.id)+'">'+(e.pinned?'Ondoa juu':'Weka juu')+'</button><button class="btn gold" data-a="del" data-i="'+Number(e.id)+'">Futa</button>')+'</div>';
+  $("#app").innerHTML='<h2>Admin</h2><div class="chips"><button class="chip" aria-pressed="'+(mode==="wait")+'" data-m="wait">Zinazosubiri</button><button class="chip" aria-pressed="'+(mode==="live")+'" data-m="live">Zilizo hewani</button><button class="chip" data-m="new">Weka post yangu</button><button class="chip" data-m="out">Toka</button></div>'
+   +(msg?'<p class="mute">'+esc(msg)+'</p>':'')+(rows.length?rows.map(row).join(""):'<div class="card">Hakuna.</div>');
+}
+function adminNew(){
+  const F=["name:Jina au kichwa","role:Aina (mfano: Mwenye leseni, Nunua)","minerals:Madini au bidhaa","place:Mahali","license_no:Namba ya leseni","price:Bei","description:Maelezo","phone:Simu"];
+  $("#app").innerHTML='<h2>Post yangu</h2><div class="card" id="nf"><label>Sehemu<select name="type"><option value="soko">Soko</option><option value="duka">Duka</option><option value="ombi">Miradi</option><option value="mtaalamu">Wataalamu</option></select></label>'
+   +F.map(s=>{const i=s.indexOf(":");return '<label>'+esc(s.slice(i+1))+'<input name="'+s.slice(0,i)+'" maxlength="500"></label>'}).join("")
+   +'<label><input type="checkbox" name="pinned" checked style="width:auto;margin-right:8px">Weka juu ya orodha</label><button class="btn" id="np">Weka</button><button class="btn gold" id="nb">Rudi</button><p class="mute" id="nm" role="status"></p></div>';
+  $("#nb").onclick=()=>adminList("wait");
+  $("#np").onclick=async()=>{
+    const o={};document.querySelectorAll("#nf [name]").forEach(i=>{o[i.name]=i.type==="checkbox"?i.checked:(i.value.trim()||null)});
+    o.phone=digits(o.phone||"");o.verified=true;
+    if(!o.name||o.phone.length<9){$("#nm").textContent="Weka jina na simu sahihi.";return}
+    try{await adm("entries",{method:"POST",headers:Object.assign(AH(),PM),body:JSON.stringify(o)});adminList("live","Post imewekwa.")}
+    catch(e){$("#nm").textContent="Imeshindwa kuweka."}
+  };
+}
+async function adminClick(ev){
+  const b=ev.target.closest("[data-a],[data-m]");if(!b||!TOK)return;
+  const m=b.dataset.m;
+  if(m){if(m==="out")return out("Umetoka.");if(m==="new")return adminNew();return adminList(m)}
+  const id=Number(b.dataset.i),a=b.dataset.a,mode=(a==="ok"||b.dataset.w)?"wait":"live";
+  try{
+    if(a==="ok")await adm("entries?id=eq."+id,{method:"PATCH",headers:Object.assign(AH(),PM),body:JSON.stringify({verified:true})});
+    else if(a==="pin")await adm("entries?id=eq."+id,{method:"PATCH",headers:Object.assign(AH(),PM),body:JSON.stringify({pinned:b.dataset.p!=="1"})});
+    else if(confirm("Una uhakika?"))await adm("entries?id=eq."+id,{method:"DELETE",headers:Object.assign(AH(),PM)});
+    else return;
+  }catch(e){return}
+  adminList(mode,"Imekamilika.");
+}
+$("#app").addEventListener("click",adminClick);
+
 load();
 </script>
 </body></html>
