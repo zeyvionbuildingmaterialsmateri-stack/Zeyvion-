@@ -50,6 +50,9 @@ mtaalamu:{t:"Wataalamu",sub:"Wanajiolojia, watafiti wa maeneo mapya na wahandisi
 apollo:{t:"Apollo",sub:"Kwa wachimbaji wadogo. Hakuna leseni inayohitajika kujisajili.",priv:1,
  f:{name:"Jina lako",phone:PH,minerals:"Madini unayochimba",place:"Eneo lako"}}
 };
+const LIC={"Mwenye leseni":"leseni ya madini","Dalali":"leseni ya udalali wa madini","Dealer":"leseni ya dealer (biashara ya madini)","Sonara":"leseni ya usonara","Mwekezaji":"kibali cha kuwekeza au kutafuta madini"};
+const licName=r=>LIC[r]||"leseni";
+const licTitle=r=>{const n=licName(r);return n[0].toUpperCase()+n.slice(1)};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const digits=s=>String(s).replace(/\D/g,"");
@@ -70,7 +73,7 @@ async function load(){
   list();
 }
 const card=e=>'<div class="card"><strong>'+esc(e.name)+'</strong>'+(e.pinned?'<span class="badge gold">Imewekwa na Zeyvion</span>':'')+'<div class="mute" style="margin:0">'+[e.role,e.place].filter(Boolean).map(esc).join(", ")+'</div>'
- +(e.license_no?'<div>Leseni: <b>'+esc(e.license_no)+'</b></div>':'')+(e.minerals?'<div>'+esc(e.minerals)+'</div>':'')+(e.price?'<div>Bei: '+esc(e.price)+'</div>':'')+(e.description?'<p style="margin:6px 0 0">'+esc(e.description)+'</p>':'')
+ +(e.license_no?'<div>'+esc(licTitle(e.role))+': <b>'+esc(e.license_no)+'</b></div>':'')+(e.minerals?'<div>'+esc(e.minerals)+'</div>':'')+(e.price?'<div>Bei: '+esc(e.price)+'</div>':'')+(e.description?'<p style="margin:6px 0 0">'+esc(e.description)+'</p>':'')
  +'<div><span class="badge ok">Imethibitishwa na Zeyvion</span></div><a class="btn" href="tel:+'+intl(e.phone)+'">Piga</a><a class="btn gold" href="https://wa.me/'+intl(e.phone)+'">WhatsApp</a></div>';
 
 function list(){
@@ -83,6 +86,7 @@ function formHtml(T){
   return '<div class="card" id="form"><strong>'+(T.priv?"Jiunge na Apollo":"Weka taarifa zako")+'</strong><p class="mute">'+(T.priv?"Taarifa zako hazionekani hadharani.":"Taarifa zitaonekana baada ya kuhakikiwa.")+'</p>'
   +Object.keys(T.f).map(k=>{const l=esc(T.f[k]);
     if(k==="role"&&T.roles)return '<label>'+l+'<select name="role">'+T.roles.map(r=>'<option>'+esc(r)+'</option>').join("")+'</select></label>';
+    if(k==="license_no")return '<label><span id="licl"></span><input name="license_no" maxlength="80"></label>';
     return '<label>'+l+'<input name="'+k+'" maxlength="'+(k==="description"?500:120)+'"'+(k==="phone"?' type="tel" inputmode="tel"':'')+'></label>'}).join("")
   +'<button class="btn" id="send">Tuma</button><p class="mute" id="msg" role="status"></p></div>';
 }
@@ -100,6 +104,7 @@ function draw(){
     $("#chips").onclick=e=>{const b=e.target.closest("[data-r]");if(b){role=b.dataset.r;list()}};
   }
   $("#send").onclick=send;
+  if(tab==="soko"){const sel=document.querySelector('#form select[name="role"]'),set=()=>{$("#licl").textContent="Namba ya "+licName(sel.value)+" (lazima)"};sel.onchange=set;set()}
   $("#adm").onclick=e=>{e.preventDefault();adminView()};
 }
 $("#nav").onclick=e=>{const b=e.target.closest("[data-t]");if(b){tab=b.dataset.t;load();window.scrollTo(0,0)}};
@@ -109,6 +114,7 @@ async function send(){
   document.querySelectorAll("#form [name]").forEach(i=>{row[i.name]=i.value.trim()||null});
   row.phone=digits(row.phone||"");
   if(!row.name||row.name.length<2||row.phone.length<9){msg.textContent="Weka jina na namba ya simu sahihi.";return}
+  if(tab==="soko"&&(!row.license_no||row.license_no.length<4)){msg.textContent="Weka namba ya "+licName(row.role)+", kama inavyoandikwa kwenye cheti chako.";return}
   if(!ready()){msg.textContent="Tovuti haijaunganishwa na database bado.";return}
   $("#send").disabled=true;
   try{
@@ -151,7 +157,7 @@ async function adminList(mode,msg){
   try{rows=await adm("entries?verified=eq."+(mode==="live")+"&order=pinned.desc,created_at.desc&limit=100&select=*")}catch(e){return}
   const row=e=>'<div class="card"><strong>'+esc(e.name)+'</strong>'+(e.pinned?'<span class="badge gold">Juu</span>':'')
    +'<div class="mute" style="margin:0">'+esc(TL[e.type]||e.type)+(e.role?', '+esc(e.role):'')+(e.place?', '+esc(e.place):'')+'</div>'
-   +(e.license_no?'<div>Leseni: <b>'+esc(e.license_no)+'</b></div>':'')+(e.minerals?'<div>'+esc(e.minerals)+'</div>':'')+(e.price?'<div>Bei: '+esc(e.price)+'</div>':'')
+   +(e.license_no?'<div>'+esc(licTitle(e.role))+': <b>'+esc(e.license_no)+'</b></div>':'')+(e.minerals?'<div>'+esc(e.minerals)+'</div>':'')+(e.price?'<div>Bei: '+esc(e.price)+'</div>':'')
    +(e.description?'<p style="margin:6px 0 0">'+esc(e.description)+'</p>':'')+'<div class="mute">Simu: '+esc(e.phone)+'</div>'
    +(mode==="wait"?'<button class="btn" data-a="ok" data-i="'+Number(e.id)+'">Idhinisha</button><button class="btn gold" data-a="del" data-w="1" data-i="'+Number(e.id)+'">Kataa</button>'
      :'<button class="btn" data-a="pin" data-p="'+(e.pinned?1:0)+'" data-i="'+Number(e.id)+'">'+(e.pinned?'Ondoa juu':'Weka juu')+'</button><button class="btn gold" data-a="del" data-i="'+Number(e.id)+'">Futa</button>')+'</div>';
