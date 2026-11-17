@@ -1,835 +1,237 @@
 <!doctype html>
-<html lang="sw" translate="no">
-<head>
-  <meta charset="utf-8">
-  <meta name="google" content="notranslate">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <link rel="icon" href="IMG-20261115-WA0003.jpg">
-
-  <meta property="og:title"
-        content="Zeyvion Mineral and Building Materials">
-
-  <meta property="og:description"
-        content="Your complete construction partner. Soko la madini, vifaa vya ujenzi na wataalamu.">
-
-  <meta property="og:image"
-        content="https://zeyvionbuildingmaterialsmateri-stack.github.io/Zeyvion-/IMG-20261115-WA0003.jpg">
-
-  <title>Zeyvion Mineral and Building Materials</title>
-
-  <style>
-    :root {
-      --bg: #EEF0F5;
-      --s: #fff;
-      --ink: #16162B;
-      --mute: #5E6078;
-      --line: #D9DCE8;
-      --tz: #3B3FA8;
-      --gold: #9A6B10;
-      --on: #fff;
-      color-scheme: light;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0F1020;
-        --s: #1A1B30;
-        --ink: #ECECF8;
-        --mute: #9A9CB8;
-        --line: #2D2F4C;
-        --tz: #9EA3FF;
-        --gold: #E0B25A;
-        --on: #10102A;
-        color-scheme: dark;
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0 auto;
-      background: var(--bg);
-      color: var(--ink);
-      font: 15px/1.45 system-ui, sans-serif;
-      max-width: 480px;
-      padding: 0 16px 90px;
-    }
-
-    header {
-      padding: 16px 0 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    header b {
-      font-size: 19px;
-      font-weight: 800;
-    }
-
-    header span {
-      color: var(--tz);
-    }
-
-    header small {
-      display: block;
-      font-size: 11px;
-      color: var(--mute);
-    }
-
-    h2 {
-      margin: 8px 0 4px;
-      font-size: 22px;
-    }
-
-    .mute {
-      color: var(--mute);
-      font-size: 13px;
-      margin: 0 0 10px;
-    }
-
-    input,
-    select {
-      width: 100%;
-      font: inherit;
-      color: var(--ink);
-      background: var(--s);
-      border: 1.5px solid var(--line);
-      border-radius: 10px;
-      padding: 11px;
-      margin: 4px 0 12px;
-    }
-
-    label {
-      display: block;
-      font-weight: 600;
-      font-size: 13px;
-    }
-
-    .card {
-      background: var(--s);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 12px;
-    }
-
-    .chips {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 12px;
-    }
-
-    .chip {
-      flex: none;
-      border: 1.5px solid var(--line);
-      background: var(--s);
-      color: var(--ink);
-      font-family: inherit;
-      font-weight: 600;
-      font-size: 13px;
-      border-radius: 20px;
-      padding: 8px 14px;
-    }
-
-    .chip[aria-pressed=true] {
-      background: var(--tz);
-      border-color: var(--tz);
-      color: var(--on);
-    }
-
-    .btn {
-      display: inline-block;
-      border: 0;
-      border-radius: 12px;
-      background: var(--tz);
-      color: var(--on);
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 12px 16px;
-      text-decoration: none;
-      cursor: pointer;
-      margin: 8px 8px 0 0;
-    }
-
-    .gold {
-      background: var(--gold);
-      color: var(--on);
-    }
-
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      border-radius: 6px;
-      padding: 2px 8px;
-      margin: 6px 6px 0 0;
-    }
-
-    .badge.ok {
-      background: #DDF2E8;
-      color: #1B7A58;
-    }
-
-    .badge.gold {
-      background: #F6EBD2;
-      color: #9A6B10;
-    }
-
-    #send {
-      width: 100%;
-      margin-right: 0;
-    }
-
-    nav {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(480px, 100%);
-      display: flex;
-      background: var(--s);
-      border-top: 1px solid var(--line);
-      padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
-    }
-
-    nav button {
-      flex: 1;
-      border: 0;
-      background: none;
-      color: var(--mute);
-      font-family: inherit;
-      font-weight: 600;
-      font-size: 12px;
-      padding: 10px 2px;
-      border-radius: 10px;
-    }
-
-    nav button[aria-current=page] {
-      color: var(--tz);
-      background: var(--bg);
-    }
-  </style>
-</head>
-
+<html lang="sw" translate="no"><head><meta charset="utf-8">
+<meta name="google" content="notranslate">
+<link rel="icon" href="zeyvion-logo.jpg">
+<meta property="og:title" content="Zeyvion Mineral and Building Materials">
+<meta property="og:description" content="Your complete construction partner. Soko la madini, vifaa vya ujenzi na wataalamu.">
+<meta property="og:image" content="https://zeyvionbuildingmaterialsmateri-stack.github.io/Zeyvion-/banner-2.jpg">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zeyvion Mineral and Building Materials</title>
+<style>
+:root{--bg:#EEF0F5;--s:#fff;--ink:#16162B;--mute:#5E6078;--line:#D9DCE8;--tz:#3B3FA8;--gold:#9A6B10;--on:#fff;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--bg:#0F1020;--s:#1A1B30;--ink:#ECECF8;--mute:#9A9CB8;--line:#2D2F4C;--tz:#9EA3FF;--gold:#E0B25A;--on:#10102A;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0 auto;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,sans-serif;max-width:480px;padding:0 16px 90px}
+header{padding:16px 0 8px}header b{font-size:19px;font-weight:800}header span{color:var(--tz)}header small{display:block;font-size:11px;color:var(--mute)}
+h2{margin:8px 0 4px;font-size:22px}.mute{color:var(--mute);font-size:13px;margin:0 0 10px}
+input,select{width:100%;font:inherit;color:var(--ink);background:var(--s);border:1.5px solid var(--line);border-radius:10px;padding:11px;margin:4px 0 12px}
+label{display:block;font-weight:600;font-size:13px}
+.card{background:var(--s);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+.chip{flex:none;border:1.5px solid var(--line);background:var(--s);color:var(--ink);font-family:inherit;font-weight:600;font-size:13px;border-radius:20px;padding:8px 14px}
+.chip[aria-pressed=true]{background:var(--tz);border-color:var(--tz);color:var(--on)}
+.btn{display:inline-block;border:0;border-radius:12px;background:var(--tz);color:var(--on);font-family:inherit;font-weight:700;font-size:15px;padding:12px 16px;text-decoration:none;cursor:pointer;margin:8px 8px 0 0}
+.gold{background:var(--gold);color:var(--on)}.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;margin:6px 6px 0 0}.badge.ok{background:#DDF2E8;color:#1B7A58}.badge.gold{background:#F6EBD2;color:#9A6B10}#send{width:100%;margin-right:0}.av{width:64px;height:64px;border-radius:50%;object-fit:cover;float:left;margin:0 12px 6px 0;background:#fff}.pic{width:100%;max-height:220px;object-fit:cover;border-radius:10px;margin-bottom:8px;background:#fff}.card:after{content:"";display:block;clear:both}.bn{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:14px;margin:4px 0 14px;scrollbar-width:none;aspect-ratio:2/1;background:#0b1a6b}.bn::-webkit-scrollbar{display:none}.bn img{flex:none;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);display:flex;background:var(--s);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;border:0;background:none;color:var(--mute);font-family:inherit;font-weight:600;font-size:12px;padding:10px 2px;border-radius:10px}
+nav button[aria-current=page]{color:var(--tz);background:var(--bg)}
+</style></head>
 <body>
-  <header>
-    <img
-      src="IMG-20261115-WA0003.jpg"
-      alt="Zeyvion"
-      width="52"
-      height="52"
-      style="border-radius:10px;background:#fff">
-
-    <div>
-      <b>ZEYVION <span>MINERAL</span></b>
-      <small>and Building Materials</small>
-    </div>
-  </header>
-
-  <!-- KIUNGO KIPYA CHA DEAL ROOM -->
-  <p>
-    <a class="btn" href="./deal-room.html">Deal Room</a>
-  </p>
-
-  <main id="app"></main>
-  <nav id="nav" aria-label="Menyu kuu"></nav>
-
-  <script>
-    const SUPABASE_URL =
-      "https://pjerbhufmxijguzrnfmv.supabase.co";
-
-    // Hii ni public anon key iliyokuwemo kwenye code yako.
-    // Usiweke service_role au secret key hapa.
-    const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqZXJiaHVmbXhpamd1enJuZm12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ1NTM2MTYsImV4cCI6MjExMDEyOTYxNn0.8x2As7DWxisgJgRZs7doOGb_01BhGRNhhWeCYed2tkM";
-
-    const CONTACT = {
-      call1: "0696695977",
-      call2: "0743210209",
-      wa: "255696695977",
-      group: "https://chat.whatsapp.com/L8IPMWji2IPIn8YK5NioeQ"
-    };
-
-    const PH = "Namba ya simu";
-
-    const TABS = {
-      soko: {
-        t: "Soko",
-        sub: "Wenye leseni, madalali, dealers, masonara na wawekezaji.",
-        roles: [
-          "Mwenye leseni",
-          "Dalali",
-          "Dealer",
-          "Sonara",
-          "Mwekezaji"
-        ],
-        f: {
-          name: "Jina la kampuni au mtu",
-          role: "Wewe ni nani?",
-          minerals: "Madini (mfano: dhahabu, kokoto, chokaa)",
-          place: "Mkoa au nchi",
-          license_no: "Namba ya leseni (itahakikiwa kabla ya kuonekana)",
-          description: "Maelezo (leseni ngapi, unauza au unatafuta nini)",
-          phone: PH
-        }
-      },
-
-      duka: {
-        t: "Duka",
-        sub: "Vifaa na mashine za machimbo na ujenzi.",
-        roles: ["Nunua", "Kodisha"],
-        f: {
-          name: "Jina la kifaa au mashine",
-          role: "Nunua au kodisha?",
-          price: "Bei (mfano: TSh 80,000 kwa siku)",
-          place: "Mahali kilipo",
-          description: "Maelezo",
-          phone: PH
-        }
-      },
-
-      ombi: {
-        t: "Miradi",
-        sub: "Miradi inayohitaji kokoto, mchanga na madini kwa wingi.",
-        f: {
-          name: "Jina la mradi",
-          minerals: "Unahitaji nini? (mfano: kokoto)",
-          description: "Kiasi (mfano: tani 5,000)",
-          place: "Mahali pa mradi",
-          phone: PH
-        }
-      },
-
-      mtaalamu: {
-        t: "Wataalamu",
-        sub: "Wanajiolojia, watafiti wa maeneo mapya na wahandisi.",
-        roles: [
-          "Mwanajiolojia",
-          "Mtafiti wa maeneo mapya",
-          "Mpima ardhi",
-          "Mhandisi wa migodi",
-          "Mazingira"
-        ],
-        f: {
-          name: "Jina lako",
-          role: "Fani yako",
-          place: "Mkoa au nchi",
-          description: "Huduma unazotoa",
-          phone: PH
-        }
-      },
-
-      apollo: {
-        t: "Apollo",
-        sub: "Kwa wachimbaji wadogo. Hakuna leseni inayohitajika kujisajili.",
-        priv: 1,
-        f: {
-          name: "Jina lako",
-          phone: PH,
-          minerals: "Madini unayochimba",
-          place: "Eneo lako"
-        }
-      }
-    };
-
-    const LIC = {
-      "Mwenye leseni": "leseni ya madini",
-      "Dalali": "leseni ya udalali wa madini",
-      "Dealer": "leseni ya dealer (biashara ya madini)",
-      "Sonara": "leseni ya usonara",
-      "Mwekezaji": "kibali cha kuwekeza au kutafuta madini"
-    };
-
-    const licName = r => LIC[r] || "leseni";
-
-    const licTitle = r => {
-      const n = licName(r);
-      return n[0].toUpperCase() + n.slice(1);
-    };
-
-    const $ = s => document.querySelector(s);
-
-    const esc = s =>
-      String(s == null ? "" : s).replace(
-        /[&<>"']/g,
-        c => ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;"
-        }[c])
-      );
-
-    const digits = s => String(s).replace(/\D/g, "");
-
-    const intl = p => {
-      const d = digits(p);
-      return d[0] === "0" ? "255" + d.slice(1) : d;
-    };
-
-    const ready = () => !SUPABASE_URL.includes("PASTE");
-
-    const H = {
-      apikey: SUPABASE_KEY,
-      Authorization: "Bearer " + SUPABASE_KEY
-    };
-
-    let tab = "soko";
-    let role = "Wote";
-    let q = "";
-    let items = [];
-    let status = "";
-
-    async function load() {
-      items = [];
-      status = "";
-      role = "Wote";
-      q = "";
-
-      draw();
-
-      if (TABS[tab].priv) return;
-
-      if (!ready()) {
-        status = "Tovuti bado haijaunganishwa na database.";
-        return list();
-      }
-
-      try {
-        const r = await fetch(
-          SUPABASE_URL +
-          "/rest/v1/entries?type=eq." + tab +
-          "&verified=eq.true" +
-          "&order=pinned.desc,created_at.desc" +
-          "&limit=100" +
-          "&select=name,role,minerals,place,description,price,phone,license_no,pinned",
-          { headers: H }
-        );
-
-        if (!r.ok) throw new Error("Load failed");
-        items = await r.json();
-      } catch (e) {
-        status = "Imeshindwa kupakia. Jaribu tena baadaye.";
-      }
-
-      list();
-    }
-
-    const card = e =>
-      '<div class="card">' +
-        '<strong>' + esc(e.name) + '</strong>' +
-
-        (e.pinned
-          ? '<span class="badge gold">Imewekwa na Zeyvion</span>'
-          : '') +
-
-        '<div class="mute" style="margin:0">' +
-          [e.role, e.place].filter(Boolean).map(esc).join(", ") +
-        '</div>' +
-
-        (e.license_no
-          ? '<div>' + esc(licTitle(e.role)) +
-            ': <b>' + esc(e.license_no) + '</b></div>'
-          : '') +
-
-        (e.minerals ? '<div>' + esc(e.minerals) + '</div>' : '') +
-
-        (e.price
-          ? '<div>Bei: ' + esc(e.price) + '</div>'
-          : '') +
-
-        (e.description
-          ? '<p style="margin:6px 0 0">' +
-            esc(e.description) + '</p>'
-          : '') +
-
-        '<div><span class="badge ok">' +
-          'Imethibitishwa na Zeyvion' +
-        '</span></div>' +
-
-        '<a class="btn" href="tel:+' +
-          intl(e.phone) + '">Piga</a>' +
-
-        '<a class="btn gold" href="https://wa.me/' +
-          intl(e.phone) + '">WhatsApp</a>' +
-      '</div>';
-
-    function list() {
-      const T = TABS[tab];
-
-      if (T.priv) return;
-
-      if (T.roles) {
-        $("#chips").innerHTML =
-          ["Wote"].concat(T.roles).map(r =>
-            '<button class="chip" aria-pressed="' +
-              (r === role) +
-              '" data-r="' + esc(r) + '">' +
-              esc(r) +
-            '</button>'
-          ).join("");
-      }
-
-      const L = items.filter(e =>
-        (role === "Wote" || e.role === role) &&
-        Object.values(e).join(" ").toLowerCase()
-          .includes(q.toLowerCase())
-      );
-
-      $("#list").innerHTML = status
-        ? '<div class="card">' + esc(status) + '</div>'
-        : L.length
-          ? L.map(card).join("")
-          : '<div class="card">Hakuna bado. Kuwa wa kwanza kuweka taarifa hapa chini.</div>';
-    }
-
-    function formHtml(T) {
-      return (
-        '<div class="card" id="form">' +
-          '<strong>' +
-            (T.priv ? "Jiunge na Apollo" : "Weka taarifa zako") +
-          '</strong>' +
-
-          '<p class="mute">' +
-            (T.priv
-              ? "Taarifa zako hazionekani hadharani."
-              : "Taarifa zitaonekana baada ya kuhakikiwa.") +
-          '</p>' +
-
-          Object.keys(T.f).map(k => {
-            const l = esc(T.f[k]);
-
-            if (k === "role" && T.roles) {
-              return (
-                '<label>' + l +
-                  '<select name="role">' +
-                    T.roles.map(r =>
-                      '<option>' + esc(r) + '</option>'
-                    ).join("") +
-                  '</select>' +
-                '</label>'
-              );
-            }
-
-            if (k === "license_no") {
-              return (
-                '<label><span id="licl"></span>' +
-                '<input name="license_no" maxlength="80">' +
-                '</label>'
-              );
-            }
-
-            return (
-              '<label>' + l +
-                '<input name="' + k +
-                '" maxlength="' + (k === "description" ? 500 : 120) +
-                '"' +
-                (k === "phone"
-                  ? ' type="tel" inputmode="tel"'
-                  : '') +
-                '>' +
-              '</label>'
-            );
-          }).join("") +
-
-          '<button class="btn" id="send">Tuma</button>' +
-          '<p class="mute" id="msg" role="status"></p>' +
-        '</div>'
-      );
-    }
-
-    function contactHtml() {
-      return (
-        '<div class="card">' +
-          '<strong>Wasiliana nasi kwa msaada</strong><br>' +
-
-          '<a class="btn" href="tel:+' +
-            intl(CONTACT.call1) + '">Piga ' +
-            esc(CONTACT.call1) + '</a>' +
-
-          '<a class="btn" href="tel:+' +
-            intl(CONTACT.call2) + '">Piga ' +
-            esc(CONTACT.call2) + '</a>' +
-
-          '<a class="btn gold" href="https://wa.me/' +
-            esc(CONTACT.wa) + '">WhatsApp</a>' +
-
-          '<a class="btn" href="' +
-            esc(CONTACT.group) + '">Group la WhatsApp</a>' +
-
-          '<p class="mute" style="margin:10px 0 0">' +
-            '<a href="#admin" id="adm">Admin</a>' +
-          '</p>' +
-        '</div>'
-      );
-    }
-
-    function draw() {
-      const T = TABS[tab];
-
-      $("#app").innerHTML =
-        '<h2>' + T.t + '</h2>' +
-        '<p class="mute">' + T.sub + '</p>' +
-
-        (T.priv
-          ? ''
-          : '<input id="q" type="search" placeholder="Tafuta" aria-label="Tafuta">' +
-            '<div class="chips" id="chips"></div>' +
-            '<div id="list"></div>') +
-
-        formHtml(T) +
-        contactHtml();
-
-      $("#nav").innerHTML =
-        Object.keys(TABS).map(k =>
-          '<button data-t="' + k + '"' +
-            (k === tab ? ' aria-current="page"' : '') +
-            '>' + TABS[k].t +
-          '</button>'
-        ).join("");
-
-      if (!T.priv) {
-        $("#q").oninput = e => {
-          q = e.target.value;
-          list();
-        };
-
-        $("#chips").onclick = e => {
-          const b = e.target.closest("[data-r]");
-
-          if (b) {
-            role = b.dataset.r;
-            list();
-          }
-        };
-      }
-
-      $("#send").onclick = send;
-
-      if (tab === "soko") {
-        const sel =
-          document.querySelector('#form select[name="role"]');
-
-        const set = () => {
-          $("#licl").textContent =
-            "Namba ya " + licName(sel.value) + " (lazima)";
-        };
-
-        sel.onchange = set;
-        set();
-      }
-
-      $("#adm").onclick = e => {
-        e.preventDefault();
-        adminView();
-      };
-    }
-
-    $("#nav").onclick = e => {
-      const b = e.target.closest("[data-t]");
-
-      if (b) {
-        tab = b.dataset.t;
-        load();
-        window.scrollTo(0, 0);
-      }
-    };
-
-    async function send() {
-      const row = { type: tab };
-      const msg = $("#msg");
-
-      document.querySelectorAll("#form [name]").forEach(i => {
-        row[i.name] = i.value.trim() || null;
-      });
-
-      row.phone = digits(row.phone || "");
-
-      if (!row.name || row.name.length < 2 || row.phone.length < 9) {
-        msg.textContent = "Weka jina na namba ya simu sahihi.";
-        return;
-      }
-
-      if (
-        tab === "soko" &&
-        (!row.license_no || row.license_no.length < 4)
-      ) {
-        msg.textContent =
-          "Weka namba ya " + licName(row.role) +
-          ", kama inavyoandikwa kwenye cheti chako.";
-        return;
-      }
-
-      if (!ready()) {
-        msg.textContent = "Tovuti haijaunganishwa na database bado.";
-        return;
-      }
-
-      $("#send").disabled = true;
-
-      try {
-        const r = await fetch(
-          SUPABASE_URL + "/rest/v1/entries",
-          {
-            method: "POST",
-            headers: Object.assign(
-              {
-                "Content-Type": "application/json",
-                Prefer: "return=minimal"
-              },
-              H
-            ),
-            body: JSON.stringify(row)
-          }
-        );
-
-        if (!r.ok) throw new Error("Send failed");
-
-        document.querySelectorAll("#form [name]").forEach(i => {
-          if (i.tagName === "INPUT") i.value = "";
-        });
-
-        msg.textContent = tab === "apollo"
-          ? "Karibu Apollo! Tutakupigia ukipata mnunuzi."
-          : "Asante! Taarifa zako zitaonekana baada ya kuhakikiwa.";
-
-      } catch (e) {
-        msg.textContent = "Imeshindwa kutuma. Jaribu tena.";
-      }
-
-      $("#send").disabled = false;
-    }
-
-    /* ADMIN: ruhusa halisi lazima zidhibitiwe na database RLS. */
-
-    let TOK = sessionStorage.getItem("zt") || "";
-
-    const AH = () => ({
-      apikey: SUPABASE_KEY,
-      Authorization: "Bearer " + TOK,
-      "Content-Type": "application/json"
-    });
-
-    const PM = { Prefer: "return=minimal" };
-
-    const TL = {
-      soko: "Soko",
-      duka: "Duka",
-      ombi: "Miradi",
-      mtaalamu: "Wataalamu",
-      apollo: "Apollo"
-    };
-
-    function out(msg) {
-      TOK = "";
-      sessionStorage.removeItem("zt");
-      adminView(msg);
-    }
-
-    async function adm(path, opt) {
-      const r = await fetch(
-        SUPABASE_URL + "/rest/v1/" + path,
-        Object.assign({ headers: AH() }, opt || {})
-      );
-
-      if (r.status === 401) {
-        out("Muda umeisha. Ingia tena.");
-        throw new Error("Session expired");
-      }
-
-      if (!r.ok) throw new Error("Admin request failed");
-
-      const text = await r.text();
-      return text ? JSON.parse(text) : null;
-    }
-
-    function adminView(msg) {
-      document.querySelectorAll("#nav [aria-current]")
-        .forEach(b => b.removeAttribute("aria-current"));
-
-      if (!TOK) {
-        $("#app").innerHTML =
-          '<h2>Admin</h2>' +
-          '<div class="card">' +
-            '<label>Barua pepe' +
-              '<input id="ae" type="email" autocomplete="username">' +
-            '</label>' +
-
-            '<label>Nenosiri' +
-              '<input id="ap" type="password" autocomplete="current-password">' +
-            '</label>' +
-
-            '<button class="btn" id="al">Ingia</button>' +
-            '<p class="mute" id="am" role="status">' +
-              esc(msg || "") +
-            '</p>' +
-          '</div>';
-
-        $("#al").onclick = login;
-        return;
-      }
-
-      adminList("wait", msg);
-    }
-
-    async function login() {
-      try {
-        const r = await fetch(
-          SUPABASE_URL + "/auth/v1/token?grant_type=password",
-          {
-            method: "POST",
-            headers: {
-              apikey: SUPABASE_KEY,
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              email: $("#ae").value.trim(),
-              password: $("#ap").value
-            })
-          }
-        );
-
-        const j = await r.json();
-
-        if (!r.ok || !j.access_token) {
-          throw new Error("Login failed");
-        }
-
-        TOK = j.access_token;
-        sessionStorage.setItem("zt", TOK);
-        adminView();
-
-      } catch (e) {
-        $("#am").textContent =
-          "Barua pepe au nenosiri si sahihi.";
-      }
-    }
-
-    async function adminList(mode, msg) {
-      let rows;
-
-      try {
-        rows = await adm(
-          "entries?verified=eq." + (mode === "live") +
-          "&order=pinned.desc,created_at.desc&limit=100&select=*"
-        );
-      } catch (e) {
-        return;
-      }
-
-      const row = e =>
-        '<div class="card">' +
-          '<strong>' + esc(e.name) + '</strong>' +
-
-          (e.pinned
-            ? '<span class="badge gold">Juu</span>'
-            : '') +
-
-          '<div c
+<header style="display:flex;align-items:center;gap:10px"><img src="zeyvion-logo.jpg" onerror="this.onerror=null;this.src='IMG-20261115-WA0003.jpg'" alt="Zeyvion" width="52" height="52" style="border-radius:10px;background:#fff"><div><b>ZEYVION <span>MINERAL</span></b><small>and Building Materials</small></div></header>
+<main id="app"></main>
+<nav id="nav" aria-label="Menyu kuu"></nav>
+<script>
+/* 1) WEKA MAELEZO YA SUPABASE HAPA (angalia MAELEZO.md) */
+const SUPABASE_URL="https://pjerbhufmxijguzrnfmv.supabase.co";
+const SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqZXJiaHVmbXhpamd1enJuZm12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ1NTM2MTYsImV4cCI6MjExMDEyOTYxNn0.8x2As7DWxisgJgRZs7doOGb_01BhGRNhhWeCYed2tkM";
+/* 2) MAWASILIANO YAKO */
+const CONTACT={call1:"0696695977",call2:"0743210209",wa:"255696695977",group:"https://chat.whatsapp.com/L8IPMWji2IPIn8YK5NioeQ"};
+
+const PH="Namba ya simu";
+const TABS={
+soko:{t:"Soko",sub:"Wenye leseni, madalali, dealers, masonara na wawekezaji.",roles:["Mwenye leseni","Dalali","Dealer","Sonara","Mwekezaji"],
+ f:{name:"Jina la kampuni au mtu",role:"Wewe ni nani?",minerals:"Madini (mfano: dhahabu, kokoto, chokaa)",place:"Mkoa au nchi",license_no:"Namba ya leseni (itahakikiwa kabla ya kuonekana)",description:"Maelezo (leseni ngapi, unauza au unatafuta nini)",phone:PH}},
+duka:{t:"Duka",sub:"Vifaa na mashine za machimbo na ujenzi.",roles:["Nunua","Kodisha"],
+ f:{name:"Jina la kifaa au mashine",role:"Nunua au kodisha?",price:"Bei (mfano: TSh 80,000 kwa siku)",place:"Mahali kilipo",description:"Maelezo",phone:PH}},
+ombi:{t:"Miradi",sub:"Miradi inayohitaji kokoto, mchanga na madini kwa wingi.",
+ f:{name:"Jina la mradi",minerals:"Unahitaji nini? (mfano: kokoto)",description:"Kiasi (mfano: tani 5,000)",place:"Mahali pa mradi",phone:PH}},
+mtaalamu:{t:"Wataalamu",sub:"Wanajiolojia, watafiti wa maeneo mapya na wahandisi.",roles:["Mwanajiolojia","Mtafiti wa maeneo mapya","Mpima ardhi","Mhandisi wa migodi","Mazingira"],
+ f:{name:"Jina lako",role:"Fani yako",place:"Mkoa au nchi",description:"Huduma unazotoa",phone:PH}},
+apollo:{t:"Apollo",sub:"Kwa wachimbaji wadogo. Hakuna leseni inayohitajika kujisajili.",priv:1,
+ f:{name:"Jina lako",phone:PH,minerals:"Madini unayochimba",place:"Eneo lako"}}
+};
+const LIC={"Mwenye leseni":"leseni ya madini","Dalali":"leseni ya udalali wa madini","Dealer":"leseni ya dealer (biashara ya madini)","Sonara":"leseni ya usonara","Mwekezaji":"kibali cha kuwekeza au kutafuta madini"};
+const licName=r=>LIC[r]||"leseni";
+const licTitle=r=>{const n=licName(r);return n[0].toUpperCase()+n.slice(1)};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const digits=s=>String(s).replace(/\D/g,"");
+const intl=p=>{let d=digits(p);return d[0]==="0"?"255"+d.slice(1):d};
+const ready=()=>!SUPABASE_URL.includes("PASTE");
+const H={apikey:SUPABASE_KEY,Authorization:"Bearer "+SUPABASE_KEY};
+let tab="soko",role="Wote",q="",items=[],status="";
+const BN=["banner-1.jpg","banner-2.jpg","banner-3.jpg"];
+const bannerHtml=()=>'<div class="bn" id="bn">'+BN.map((f,i)=>'<img src="'+f+'" alt="Zeyvion"'+(i?' loading="lazy"':'')+'>').join("")+'</div>';
+let bnTimer=0,bnHold=0;
+function bannerRun(){
+  clearInterval(bnTimer);const b=document.querySelector("#bn");if(!b)return;
+  b.addEventListener("touchstart",()=>{bnHold=Date.now()+8000},{passive:true});
+  bnTimer=setInterval(()=>{
+    const el=document.querySelector("#bn");if(!el){clearInterval(bnTimer);return}
+    if(Date.now()<bnHold)return;
+    const n=(Math.round(el.scrollLeft/el.clientWidth)+1)%el.children.length;
+    el.scrollTo({left:n*el.clientWidth,behavior:"smooth"});
+  },4500);
+}
+const PHOTO=/^[0-9a-f-]{36}\.jpg$/;
+const pic=(e,c)=>e.photo&&PHOTO.test(e.photo)?'<img class="'+(c||((tab==="soko"||tab==="mtaalamu")?"av":"pic"))+'" loading="lazy" alt="" src="'+SUPABASE_URL+'/storage/v1/object/public/photos/'+e.photo+'">':'';
+async function shrink(file){
+  const bmp=await createImageBitmap(file);
+  const k=Math.min(1,800/Math.max(bmp.width,bmp.height)),w=Math.round(bmp.width*k),h=Math.round(bmp.height*k);
+  const c=document.createElement("canvas");c.width=w;c.height=h;c.getContext("2d").drawImage(bmp,0,0,w,h);
+  const b=await new Promise(ok=>c.toBlob(ok,"image/jpeg",0.8));
+  if(!b||b.size>500000)throw 0;return b;
+}
+async function upload(blob){
+  const name=crypto.randomUUID()+".jpg";
+  const r=await fetch(SUPABASE_URL+"/storage/v1/object/photos/"+name,{method:"POST",headers:{apikey:SUPABASE_KEY,Authorization:"Bearer "+SUPABASE_KEY,"Content-Type":"image/jpeg"},body:blob});
+  if(!r.ok)throw 0;return name;
+}
+
+async function load(){
+  items=[];status="";role="Wote";q="";
+  draw();
+  if(TABS[tab].priv)return;
+  if(!ready()){status="Tovuti bado haijaunganishwa na database. Fuata MAELEZO.md.";return list()}
+  try{
+    const r=await fetch(SUPABASE_URL+"/rest/v1/entries?type=eq."+tab+"&verified=eq.true&order=pinned.desc,created_at.desc&limit=100&select=id,name,role,minerals,place,description,price,phone,license_no,pinned,photo",{headers:H});
+    if(!r.ok)throw 0;items=await r.json();
+  }catch(e){status="Imeshindwa kupakia. Jaribu tena baadaye."}
+  list();
+}
+const card=e=>'<div class="card">'+pic(e)+'<strong>'+esc(e.name)+'</strong>'+(e.pinned?'<span class="badge gold">Imewekwa na Zeyvion</span>':'')+'<div class="mute" style="margin:0">'+[e.role,e.place].filter(Boolean).map(esc).join(", ")+'</div>'
+ +(e.license_no?'<div>'+esc(licTitle(e.role))+': <b>'+esc(e.license_no)+'</b></div>':'')+(e.minerals?'<div>'+esc(e.minerals)+'</div>':'')+(e.price?'<div>Bei: '+esc(e.price)+'</div>':'')+(e.description?'<p style="margin:6px 0 0">'+esc(e.description)+'</p>':'')
+ +'<div><span class="badge ok">Imethibitishwa na Zeyvion</span></div><a class="btn" href="tel:+'+intl(e.phone)+'">Piga</a><a class="btn gold" href="https://wa.me/'+intl(e.phone)+'">WhatsApp</a><button class="btn" data-deal="'+Number(e.id)+'" data-n="'+esc(e.name)+'">Omba dili</button><div id="db'+Number(e.id)+'"></div></div>';
+
+function list(){
+  const T=TABS[tab];if(T.priv)return;
+  if(T.roles)$("#chips").innerHTML=["Wote"].concat(T.roles).map(r=>'<button class="chip" aria-pressed="'+(r===role)+'" data-r="'+esc(r)+'">'+esc(r)+'</button>').join("");
+  const L=items.filter(e=>(role==="Wote"||e.role===role)&&Object.values(e).join(" ").toLowerCase().includes(q.toLowerCase()));
+  $("#list").innerHTML=status?'<div class="card">'+esc(status)+'</div>':L.length?L.map(card).join(""):'<div class="card">Hakuna bado. Kuwa wa kwanza kuweka taarifa hapa chini.</div>';
+}
+function formHtml(T){
+  return '<div class="card" id="form"><strong>'+(T.priv?"Jiunge na Apollo":"Weka taarifa zako")+'</strong><p class="mute">'+(T.priv?"Taarifa zako hazionekani hadharani.":"Taarifa zitaonekana baada ya kuhakikiwa.")+'</p>'
+  +Object.keys(T.f).map(k=>{const l=esc(T.f[k]);
+    if(k==="role"&&T.roles)return '<label>'+l+'<select name="role">'+T.roles.map(r=>'<option>'+esc(r)+'</option>').join("")+'</select></label>';
+    if(k==="license_no")return '<label><span id="licl"></span><input name="license_no" maxlength="80"></label>';
+    return '<label>'+l+'<input name="'+k+'" maxlength="'+(k==="description"?500:120)+'"'+(k==="phone"?' type="tel" inputmode="tel"':'')+'></label>'}).join("")
+  +(T.priv?'':'<label>'+(tab==="duka"?"Picha ya bidhaa au mashine":tab==="ombi"?"Picha ya mradi":"Picha yako au nembo ya kampuni")+' (si lazima)<input id="ph" type="file" accept="image/*"></label>')
+  +'<button class="btn" id="send">Tuma</button><p class="mute" id="msg" role="status"></p></div>';
+}
+function contactHtml(){
+  return '<div class="card"><strong>Wasiliana nasi kwa msaada</strong><br><a class="btn" href="tel:+'+intl(CONTACT.call1)+'">Piga '+esc(CONTACT.call1)+'</a><a class="btn" href="tel:+'+intl(CONTACT.call2)+'">Piga '+esc(CONTACT.call2)+'</a><a class="btn gold" href="https://wa.me/'+esc(CONTACT.wa)+'">WhatsApp</a><a class="btn" href="'+esc(CONTACT.group)+'">Group la WhatsApp</a><p class="mute" style="margin:10px 0 0"><a href="#admin" id="adm">Admin</a></p></div>';
+}
+function draw(){
+  const T=TABS[tab];
+  $("#app").innerHTML=(tab==="soko"?bannerHtml():'')+'<h2>'+T.t+'</h2><p class="mute">'+T.sub+'</p>'
+   +(T.priv?'':'<input id="q" type="search" placeholder="Tafuta" aria-label="Tafuta"><div class="chips" id="chips"></div><div id="list"></div>')
+   +formHtml(T)+contactHtml();
+  $("#nav").innerHTML=Object.keys(TABS).map(k=>'<button data-t="'+k+'"'+(k===tab?' aria-current="page"':'')+'>'+TABS[k].t+'</button>').join("");
+  if(!T.priv){
+    $("#q").oninput=e=>{q=e.target.value;list()};
+    $("#chips").onclick=e=>{const b=e.target.closest("[data-r]");if(b){role=b.dataset.r;list()}};
+    $("#list").onclick=dealClick;
+  }
+  $("#send").onclick=send;
+  if(tab==="soko"){const sel=document.querySelector('#form select[name="role"]'),set=()=>{$("#licl").textContent="Namba ya "+licName(sel.value)+" (lazima)"};sel.onchange=set;set()}
+  $("#adm").onclick=e=>{e.preventDefault();adminView()};
+  if(tab==="soko")bannerRun();
+}
+$("#nav").onclick=e=>{const b=e.target.closest("[data-t]");if(b){tab=b.dataset.t;load();window.scrollTo(0,0)}};
+
+async function send(){
+  const row={type:tab},msg=$("#msg");
+  document.querySelectorAll("#form [name]").forEach(i=>{row[i.name]=i.value.trim()||null});
+  row.phone=digits(row.phone||"");
+  if(!row.name||row.name.length<2||row.phone.length<9){msg.textContent="Weka jina na namba ya simu sahihi.";return}
+  if(tab==="soko"&&(!row.license_no||row.license_no.length<4)){msg.textContent="Weka namba ya "+licName(row.role)+", kama inavyoandikwa kwenye cheti chako.";return}
+  if(!ready()){msg.textContent="Tovuti haijaunganishwa na database bado.";return}
+  $("#send").disabled=true;
+  try{
+    const f=$("#ph")&&$("#ph").files[0];
+    if(f){try{row.photo=await upload(await shrink(f))}catch(e){msg.textContent="Picha imeshindwa kupakia. Jaribu picha nyingine au tuma bila picha.";$("#send").disabled=false;return}}
+    const r=await fetch(SUPABASE_URL+"/rest/v1/entries",{method:"POST",headers:Object.assign({"Content-Type":"application/json",Prefer:"return=minimal"},H),body:JSON.stringify(row)});
+    if(!r.ok)throw 0;
+    document.querySelectorAll("#form [name]").forEach(i=>{if(i.tagName==="INPUT")i.value=""});if($("#ph"))$("#ph").value="";
+    msg.textContent=tab==="apollo"?"Karibu Apollo! Tutakupigia ukipata mnunuzi.":"Asante! Taarifa zako zitaonekana baada ya kuhakikiwa.";
+  }catch(e){msg.textContent="Imeshindwa kutuma. Jaribu tena."}
+  $("#send").disabled=false;
+}
+/* ===== ADMIN ===== */
+let TOK=sessionStorage.getItem("zt")||"";
+const AH=()=>({apikey:SUPABASE_KEY,Authorization:"Bearer "+TOK,"Content-Type":"application/json"});
+const PM={Prefer:"return=minimal"};
+const TL={soko:"Soko",duka:"Duka",ombi:"Miradi",mtaalamu:"Wataalamu",apollo:"Apollo"};
+function out(msg){TOK="";sessionStorage.removeItem("zt");adminView(msg)}
+async function adm(path,opt){
+  const r=await fetch(SUPABASE_URL+"/rest/v1/"+path,Object.assign({headers:AH()},opt||{}));
+  if(r.status===401){out("Muda umeisha. Ingia tena.");throw 0}
+  if(!r.ok)throw 0;
+  const t=await r.text();return t?JSON.parse(t):null;
+}
+function adminView(msg){
+  document.querySelectorAll("#nav [aria-current]").forEach(b=>b.removeAttribute("aria-current"));
+  if(!TOK){
+    $("#app").innerHTML='<h2>Admin</h2><div class="card"><label>Barua pepe<input id="ae" type="email" autocomplete="username"></label><label>Nenosiri<input id="ap" type="password" autocomplete="current-password"></label><button class="btn" id="al">Ingia</button><p class="mute" id="am" role="status">'+esc(msg||"")+'</p></div>';
+    $("#al").onclick=login;return;
+  }
+  adminList("wait",msg);
+}
+async function login(){
+  try{
+    const r=await fetch(SUPABASE_URL+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:SUPABASE_KEY,"Content-Type":"application/json"},body:JSON.stringify({email:$("#ae").value.trim(),password:$("#ap").value})});
+    const j=await r.json();if(!r.ok||!j.access_token)throw 0;
+    TOK=j.access_token;sessionStorage.setItem("zt",TOK);adminView();
+  }catch(e){$("#am").textContent="Barua pepe au nenosiri si sahihi."}
+}
+async function adminList(mode,msg){
+  if(mode==="leads")return adminLeads(msg);
+  let rows;
+  try{rows=await adm("entries?verified=eq."+(mode==="live")+"&order=pinned.desc,created_at.desc&limit=100&select=*")}catch(e){return}
+  const row=e=>'<div class="card">'+pic(e,"pic")+'<strong>'+esc(e.name)+'</strong>'+(e.pinned?'<span class="badge gold">Juu</span>':'')
+   +'<div class="mute" style="margin:0">'+esc(TL[e.type]||e.type)+(e.role?', '+esc(e.role):'')+(e.place?', '+esc(e.place):'')+'</div>'
+   +(e.license_no?'<div>'+esc(licTitle(e.role))+': <b>'+esc(e.license_no)+'</b></div>':'')+(e.minerals?'<div>'+esc(e.minerals)+'</div>':'')+(e.price?'<div>Bei: '+esc(e.price)+'</div>':'')
+   +(e.description?'<p style="margin:6px 0 0">'+esc(e.description)+'</p>':'')+'<div class="mute">Simu: '+esc(e.phone)+'</div>'
+   +(mode==="wait"?'<button class="btn" data-a="ok" data-i="'+Number(e.id)+'">Idhinisha</button><button class="btn gold" data-a="del" data-w="1" data-i="'+Number(e.id)+'">Kataa</button>'
+     :'<button class="btn" data-a="pin" data-p="'+(e.pinned?1:0)+'" data-i="'+Number(e.id)+'">'+(e.pinned?'Ondoa juu':'Weka juu')+'</button><button class="btn gold" data-a="del" data-i="'+Number(e.id)+'">Futa</button>')+'</div>';
+  $("#app").innerHTML='<h2>Admin</h2>'+adminChips(mode)
+   +(msg?'<p class="mute">'+esc(msg)+'</p>':'')+(rows.length?rows.map(row).join(""):'<div class="card">Hakuna.</div>');
+}
+function adminNew(){
+  const F=["name:Jina au kichwa","role:Aina (mfano: Mwenye leseni, Nunua)","minerals:Madini au bidhaa","place:Mahali","license_no:Namba ya leseni","price:Bei","description:Maelezo","phone:Simu"];
+  $("#app").innerHTML='<h2>Post yangu</h2><div class="card" id="nf"><label>Sehemu<select name="type"><option value="soko">Soko</option><option value="duka">Duka</option><option value="ombi">Miradi</option><option value="mtaalamu">Wataalamu</option></select></label>'
+   +F.map(s=>{const i=s.indexOf(":");return '<label>'+esc(s.slice(i+1))+'<input name="'+s.slice(0,i)+'" maxlength="500"></label>'}).join("")
+   +'<label>Picha (si lazima)<input id="nph" type="file" accept="image/*"></label>'
+   +'<label><input type="checkbox" name="pinned" checked style="width:auto;margin-right:8px">Weka juu ya orodha</label><button class="btn" id="np">Weka</button><button class="btn gold" id="nb">Rudi</button><p class="mute" id="nm" role="status"></p></div>';
+  $("#nb").onclick=()=>adminList("wait");
+  $("#np").onclick=async()=>{
+    const o={};document.querySelectorAll("#nf [name]").forEach(i=>{o[i.name]=i.type==="checkbox"?i.checked:(i.value.trim()||null)});
+    o.phone=digits(o.phone||"");o.verified=true;
+    if(!o.name||o.phone.length<9){$("#nm").textContent="Weka jina na simu sahihi.";return}
+    const f=$("#nph").files[0];
+    if(f){try{o.photo=await upload(await shrink(f))}catch(e){$("#nm").textContent="Picha imeshindwa kupakia.";return}}
+    try{await adm("entries",{method:"POST",headers:Object.assign(AH(),PM),body:JSON.stringify(o)});adminList("live","Post imewekwa.")}
+    catch(e){$("#nm").textContent="Imeshindwa kuweka."}
+  };
+}
+async function adminClick(ev){
+  const b=ev.target.closest("[data-a],[data-m]");if(!b||!TOK)return;
+  const m=b.dataset.m;
+  if(m){if(m==="out")return out("Umetoka.");if(m==="new")return adminNew();return adminList(m)}
+  const id=Number(b.dataset.i),a=b.dataset.a,mode=(a==="done"||a==="ldel")?"leads":(a==="ok"||b.dataset.w)?"wait":"live";
+  try{
+    if(a==="done")await adm("leads?id=eq."+id,{method:"PATCH",headers:Object.assign(AH(),PM),body:JSON.stringify({handled:true})});
+    else if(a==="ldel"){if(!confirm("Una uhakika?"))return;await adm("leads?id=eq."+id,{method:"DELETE",headers:Object.assign(AH(),PM)})}
+    else if(a==="ok")await adm("entries?id=eq."+id,{method:"PATCH",headers:Object.assign(AH(),PM),body:JSON.stringify({verified:true})});
+    else if(a==="pin")await adm("entries?id=eq."+id,{method:"PATCH",headers:Object.assign(AH(),PM),body:JSON.stringify({pinned:b.dataset.p!=="1"})});
+    else if(confirm("Una uhakika?"))await adm("entries?id=eq."+id,{method:"DELETE",headers:Object.assign(AH(),PM)});
+    else return;
+  }catch(e){return}
+  adminList(mode,"Imekamilika.");
+}
+$("#app").addEventListener("click",adminClick);
+/* ===== OMBA DILI ===== */
+function dealClick(ev){
+  const b=ev.target.closest("[data-deal]"),s=ev.target.closest("[data-send]");
+  if(b){
+    const id=b.dataset.deal,box=$(
